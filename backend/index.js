@@ -13,10 +13,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://vishnu-kesharwani.onrender.com',
-    'https://shivam-kumar.onrender.com',
-    'https://shivam-kumar-kesharwani.vercel.app',
-    'https://new-portfolio-6ove.onrender.com',
-    'https://vishnu-portfolio.onrender.com' 
+    'https://vishnu-backend-fx35.onrender.com',
   ],
   credentials: true
 }));
