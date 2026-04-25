@@ -54,7 +54,8 @@ export default function Contact() {
     setFormState('sending');
 
     try {
-      const response = await fetch('http://localhost:5000/api/send', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://vishnu-backend-fx35.onrender.com';
+      const response = await fetch(`${apiUrl}/api/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

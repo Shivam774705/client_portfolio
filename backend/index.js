@@ -37,16 +37,11 @@ if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS || !process.env.RECEIVER_
 
 // ─── NODEMAILER TRANSPORTER ────────────────────────────────────────────────
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // true for 465, false for 587 (STARTTLS)
+  service: 'gmail',
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: false
-  }
 });
 
 // Verify transporter connection on startup
