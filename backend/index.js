@@ -12,10 +12,10 @@ const port = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'https://vishnu-kesharwani.onrender.com',
     'https://shivam-kumar.onrender.com',
     'https://shivam-kumar-kesharwani.vercel.app',
     'https://new-portfolio-6ove.onrender.com',
-    // Add possible production URL for Vishnu portfolio if known, otherwise allow all for now or keep user defaults
     'https://vishnu-portfolio.onrender.com' 
   ],
   credentials: true
