@@ -1,0 +1,108 @@
+# .github/workflows/full-devops.yml
+
+name: Full Portfolio DevOps Pipeline
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 9 * * 0'   # Every Sunday 9 AM UTC
+  workflow_dispatch:
+
+jobs:
+
+# -----------------------------------   
+# FRONTEND CI
+# -----------------------------------
+  frontend-ci:
+    name: Frontend CI
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Frontend Dependencies
+        run: npm install
+
+      - name: Build Frontend
+        run: npm run build
+
+# -----------------------------------
+# BACKEND CI
+# -----------------------------------
+  backend-ci:
+    name: Backend CI
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Backend Dependencies
+        run: npm install
+
+      - name: Check Backend Start
+        run: node index.js & sleep 10
+
+# -----------------------------------
+# SEO CHECK
+# -----------------------------------
+  seo-audit:
+    name: SEO Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Website
+        run: curl -I https://vishnu-kesharwani.onrender.com/
+
+      - name: Check robots.txt
+        run: curl https://vishnu-kesharwani.onrender.com/robots.txt
+
+      - name: Check sitemap.xml
+        run: curl https://vishnu-kesharwani.onrender.com/sitemap.xml
+
+# -----------------------------------
+# LIGHTHOUSE
+# -----------------------------------
+  lighthouse:
+    name: Lighthouse Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://vishnu-kesharwani.onrender.com/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+# -----------------------------------
+# RENDER HEALTH CHECK
+# -----------------------------------
+  health-check:
+    name: Render Health Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Website
+        run: curl -f https://vishnu-kesharwani.onrender.com/ || exit 1
