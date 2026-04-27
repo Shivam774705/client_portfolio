@@ -182,7 +182,7 @@ export default function Hero() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-blue-500 to-transparent" />
                 <p className="font-accent font-semibold text-blue-400 text-lg tracking-wide">
-                  Bachelor of Pharmacy | Pharma Marketing
+                  Bachelor of Pharmacy | Pharma Marketing | Based in Bhopal
                 </p>
               </div>
               <p className="font-body text-white/60 text-lg leading-relaxed max-w-lg">
@@ -293,7 +293,7 @@ export default function Hero() {
                     <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-blue-400/30">
                       <img 
                         src="/da7cd350-9143-4408-8023-d6b7b90fa464.jpg" 
-                        alt="Vishnu Kumar Kesharwani" 
+                        alt="Vishnu Kumar Kesharwani - Pharma Professional in Bhopal" 
                         className="w-full h-full object-cover"
                         loading="eager"
                       />

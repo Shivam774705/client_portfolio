@@ -5,7 +5,7 @@ import { FaGraduationCap, FaSchool, FaBookOpen } from 'react-icons/fa6';
 const educations = [
   {
     degree: 'Bachelor of Pharmacy (B.Pharm)',
-    institution: 'Sagar Institute of Research Technology and Science - Pharmacy (RGPV)',
+    institution: 'Sagar Institute of Research Technology and Science - Pharmacy (SIRTS), Bhopal',
     duration: '2022 – 2026',
     status: 'CGPA: 7.81/10',
     desc: 'Specializing in pharmaceutical sciences, regulatory pathways, and drug marketing strategies. Currently pursuing with a strong focus on brand management.',

@@ -99,7 +99,7 @@ export default function About() {
                 </div>
 
                 <p className="font-body text-white/70 text-base leading-relaxed mb-6">
-                  Commercially aware <span className="text-blue-400 font-medium">pharma professional</span> with a solid foundation in pharmaceutical science and regulatory pathways.
+                  Commercially aware <span className="text-blue-400 font-medium">pharma professional</span> and <span className="text-blue-400 font-medium">Pharmacist</span> based in <span className="text-blue-400 font-medium">Bhopal</span>, with a solid foundation in pharmaceutical science and regulatory pathways.
                   I leverage clinical knowledge and business strategy to drive brand growth and market engagement.
                 </p>
 

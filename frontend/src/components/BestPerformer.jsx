@@ -21,7 +21,7 @@ export default function BestPerformer() {
             <div className="absolute inset-0 border-2 border-blue-500/30 rounded-2xl -rotate-3" />
             <img
               src={bestPerformerImg}
-              alt="Best Performer of the Year"
+              alt="Vishnu Kumar Kesharwani - Best Performer Award 2026 Bhopal"
               className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-700"
               loading="lazy"
             />
