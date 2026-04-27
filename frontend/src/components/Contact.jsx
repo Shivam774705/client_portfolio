@@ -105,45 +105,45 @@ export default function Contact() {
           </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* ── LEFT: Contact Info ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
-            <div className="glass-card p-8">
-              <h3 className="font-heading text-2xl font-bold text-white mb-6">Contact Information</h3>
-              <div className="space-y-6">
+            <div className="glass-card p-6 md:p-8">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Contact Information</h3>
+              <div className="space-y-4 md:space-y-6">
                 {contactInfo.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-5 group p-4 rounded-2xl hover:bg-white/5 transition-colors"
+                    className="flex items-center gap-4 md:gap-5 group p-3 md:p-4 rounded-2xl hover:bg-white/5 transition-colors"
                   >
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-xl transition-all duration-300 group-hover:scale-110"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-lg md:text-xl transition-all duration-300 group-hover:scale-110"
                       style={{ background: `${item.color}20`, color: item.color, border: `1px solid ${item.color}40` }}
                     >
                       <item.icon />
                     </div>
                     <div>
-                      <p className="font-accent text-xs text-white/40 uppercase tracking-wider mb-0.5">{item.label}</p>
-                      <p className="font-body text-white font-medium text-lg">{item.value}</p>
+                      <p className="font-accent text-[10px] md:text-xs text-white/40 uppercase tracking-wider mb-0.5">{item.label}</p>
+                      <p className="font-body text-white font-medium text-base md:text-lg break-all md:break-normal">{item.value}</p>
                     </div>
                   </a>
                 ))}
               </div>
 
               {/* Status indicator */}
-              <div className="mt-12 p-6 glass-card-blue rounded-2xl border border-blue-500/20">
+              <div className="mt-8 md:mt-12 p-5 md:p-6 glass-card-blue rounded-2xl border border-blue-500/20">
                 <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-3 h-3 bg-green-500 rounded-full" />
-                    <div className="absolute inset-0 w-3 h-3 bg-green-500 rounded-full animate-ping" />
+                  <div className="relative shrink-0">
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500 rounded-full" />
+                    <div className="absolute inset-0 w-2.5 h-2.5 md:w-3 md:h-3 bg-green-500 rounded-full animate-ping" />
                   </div>
-                  <p className="font-body text-blue-100 text-sm">Available for new opportunities</p>
+                  <p className="font-body text-blue-100 text-xs md:text-sm">Available for new opportunities</p>
                 </div>
               </div>
             </div>
@@ -155,10 +155,10 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10 space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="font-accent text-xs text-white/40 uppercase tracking-widest ml-1">Full Name</label>
+            <form onSubmit={handleSubmit} className="glass-card p-6 md:p-10 space-y-4 md:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-1.5 md:space-y-2">
+                  <label className="font-accent text-[10px] md:text-xs text-white/40 uppercase tracking-widest ml-1">Full Name</label>
                   <input
                     type="text"
                     name="name"
@@ -166,11 +166,11 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="John Doe"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white font-body focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-3.5 text-white text-sm md:text-base font-body focus:outline-none focus:border-blue-500/50 transition-colors"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="font-accent text-xs text-white/40 uppercase tracking-widest ml-1">Email Address</label>
+                <div className="space-y-1.5 md:space-y-2">
+                  <label className="font-accent text-[10px] md:text-xs text-white/40 uppercase tracking-widest ml-1">Email Address</label>
                   <input
                     type="email"
                     name="email"
@@ -178,13 +178,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="john@example.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white font-body focus:outline-none focus:border-blue-500/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-3.5 text-white text-sm md:text-base font-body focus:outline-none focus:border-blue-500/50 transition-colors"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="font-accent text-xs text-white/40 uppercase tracking-widest ml-1">Subject</label>
+              <div className="space-y-1.5 md:space-y-2">
+                <label className="font-accent text-[10px] md:text-xs text-white/40 uppercase tracking-widest ml-1">Subject</label>
                 <input
                   type="text"
                   name="subject"
@@ -192,27 +192,27 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="Inquiry regarding roles"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white font-body focus:outline-none focus:border-blue-500/50 transition-colors"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-3.5 text-white text-sm md:text-base font-body focus:outline-none focus:border-blue-500/50 transition-colors"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="font-accent text-xs text-white/40 uppercase tracking-widest ml-1">Message</label>
+              <div className="space-y-1.5 md:space-y-2">
+                <label className="font-accent text-[10px] md:text-xs text-white/40 uppercase tracking-widest ml-1">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
+                  rows={4}
                   placeholder="How can I help you?"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white font-body focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-3.5 text-white text-sm md:text-base font-body focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={formState !== 'idle'}
-                className="w-full btn-primary py-4 rounded-xl flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-70"
+                className="w-full btn-primary py-3 md:py-4 rounded-xl flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-70 text-sm md:text-base"
               >
                 {formState === 'idle' && (
                   <>

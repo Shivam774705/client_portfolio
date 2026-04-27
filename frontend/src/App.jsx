@@ -1,18 +1,21 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Certifications from './components/Certifications';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+// Lazy load sections below the fold
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const Experience = lazy(() => import('./components/Experience'));
+const Education = lazy(() => import('./components/Education'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const Achievements = lazy(() => import('./components/Achievements'));
+const BestPerformer = lazy(() => import('./components/BestPerformer'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
 import CustomCursor from './components/CustomCursor';
-import WhatsAppButton from './components/WhatsAppButton';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -39,16 +42,19 @@ export default function App() {
             <Navbar />
             <main>
               <Hero />
-              <About />
-              <Skills />
-              <Experience />
-              <Education />
-              <Certifications />
-              <Achievements />
-              <Contact />
+              <Suspense fallback={<div className="h-20" />}>
+                <About />
+                <Skills />
+                <Experience />
+                <Education />
+                <Certifications />
+                <Achievements />
+                <BestPerformer />
+                <Contact />
+                <Footer />
+                <WhatsAppButton />
+              </Suspense>
             </main>
-            <Footer />
-            <WhatsAppButton />
           </motion.div>
         )}
       </AnimatePresence>

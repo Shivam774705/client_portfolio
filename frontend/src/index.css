@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===================== FONT DISPLAY SWAP ===================== */
+/* Prevents invisible text during font load (improves LCP) */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-display: swap;
+}
+
 /* ===================== GLOBAL STYLES ===================== */
 * {
   margin: 0;
@@ -120,6 +135,22 @@ body {
 /* ===================== SECTION PADDING ===================== */
 .section-pad {
   padding: 100px 0;
+}
+
+/* ===================== PERFORMANCE: GPU HINTS ===================== */
+/* Promotes animated elements to their own GPU layer, reducing TBT */
+.float-anim,
+.blob-anim,
+.glass-card:hover,
+.btn-primary,
+.btn-outline {
+  will-change: transform;
+}
+
+/* Remove will-change after animation completes to free memory */
+.float-anim:not(:hover),
+.blob-anim:not(:hover) {
+  will-change: auto;
 }
 
 /* ===================== GRADIENT BG ===================== */

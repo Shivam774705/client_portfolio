@@ -49,6 +49,18 @@ const achievements = [
     borderColor: 'rgba(59,130,246,0.3)',
   },
   {
+    icon: FaCrown,
+    value: 2024,
+    suffix: '',
+    label: 'Best Performer 2024',
+    desc: 'Awarded "Best Performer of the Year" for outstanding clinical and professional contributions.',
+    color: 'from-blue-400 to-indigo-500',
+    bgColor: 'rgba(96,165,250,0.1)',
+    borderColor: 'rgba(96,165,250,0.3)',
+    isText: true,
+    textValue: 'TOP',
+  },
+  {
     icon: FaAward,
     value: 1,
     suffix: '',

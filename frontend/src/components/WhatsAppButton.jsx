@@ -12,6 +12,7 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.15, rotate: 12 }}
@@ -23,7 +24,7 @@ export default function WhatsAppButton() {
         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeOut' }}
         className="absolute inset-0 rounded-full bg-green-400/40"
       />
-      <FaWhatsapp className="text-2xl text-white relative z-10" />
+      <FaWhatsapp className="text-2xl text-white relative z-10" aria-hidden="true" />
     </motion.a>
   );
 }

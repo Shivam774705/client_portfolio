@@ -42,9 +42,9 @@ function ExperienceItem({ item, index, inView }) {
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative mb-12 md:mb-24 last:mb-0">
-      {/* Center line connector dot */}
-      <div className="absolute left-4 md:left-1/2 top-0 -translate-x-1/2 w-8 h-8 rounded-full bg-navy-950 border-4 border-blue-600 z-10 flex items-center justify-center">
+    <div className="relative mb-8 md:mb-24 last:mb-0">
+      {/* Connector dot */}
+      <div className="absolute left-0 md:left-1/2 top-0 -translate-x-1/2 w-8 h-8 rounded-full bg-navy-950 border-4 border-blue-600 z-10 flex items-center justify-center">
         <Icon className="text-white text-[10px]" />
       </div>
 
@@ -53,17 +53,17 @@ function ExperienceItem({ item, index, inView }) {
           initial={{ opacity: 0, x: isEven ? 50 : -50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7, delay: index * 0.2 }}
-          className={`w-full md:w-[45%] ml-12 md:ml-0 ${isEven ? 'md:text-left' : 'md:text-right'}`}
+          className={`w-full md:w-[45%] pl-8 md:pl-0 ${isEven ? 'md:text-left' : 'md:text-right'}`}
         >
-          <div className="glass-card p-6 md:p-8 hover:bg-blue-600/5 transition-colors group">
-            <span className="font-accent text-blue-400 font-bold text-sm tracking-widest uppercase mb-2 block">
+          <div className="glass-card p-5 md:p-8 hover:bg-blue-600/5 transition-colors group">
+            <span className="font-accent text-blue-400 font-bold text-[10px] md:text-sm tracking-widest uppercase mb-2 block">
               {item.date}
             </span>
-            <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">
+            <h3 className="font-heading text-lg md:text-2xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors">
               {item.role}
             </h3>
-            <p className="font-accent text-white/50 text-sm mb-4 italic">{item.company}</p>
-            <p className="font-body text-white/60 text-sm leading-relaxed">{item.desc}</p>
+            <p className="font-accent text-white/50 text-xs md:text-sm mb-3 md:mb-4 italic">{item.company}</p>
+            <p className="font-body text-white/60 text-xs md:text-sm leading-relaxed">{item.desc}</p>
           </div>
         </motion.div>
       </div>
@@ -92,7 +92,7 @@ export default function Experience() {
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600/0 via-blue-600/50 to-blue-600/0 -translate-x-1/2" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-600/0 via-blue-600/50 to-blue-600/0 -translate-x-1/2" />
 
           <div className="space-y-4">
             {experiences.map((exp, i) => (

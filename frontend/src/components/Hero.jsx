@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaPills, 
-  FaHospital, 
-  FaDna, 
-  FaStaffSnake, 
-  FaChartLine, 
-  FaMicroscope, 
-  FaSyringe, 
+import {
+  FaPills,
+  FaHospital,
+  FaDna,
+  FaStaffSnake,
+  FaChartLine,
+  FaMicroscope,
+  FaSyringe,
   FaStethoscope,
   FaDownload,
   FaPaperPlane,
@@ -26,17 +26,33 @@ function ParticleCanvas() {
     const ctx = canvas.getContext('2d');
     let animId;
 
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        if (!animId) draw();
+      } else {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }, { threshold: 0.1 });
+    observer.observe(canvas);
+
     const resize = () => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
     resize();
-    window.addEventListener('resize', resize);
+
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 200);
+    };
+    window.addEventListener('resize', handleResize);
 
     const N = 70;
     const particles = Array.from({ length: N }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: Math.random() * (canvas.width || 800),
+      y: Math.random() * (canvas.height || 600),
       r: Math.random() * 2 + 0.5,
       dx: (Math.random() - 0.5) * 0.4,
       dy: (Math.random() - 0.5) * 0.4,
@@ -44,6 +60,7 @@ function ParticleCanvas() {
     }));
 
     const draw = () => {
+      if (!canvas || !canvas.offsetWidth) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
         p.x += p.dx;
@@ -75,10 +92,11 @@ function ParticleCanvas() {
       }
       animId = requestAnimationFrame(draw);
     };
-    draw();
+    
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
+      observer.disconnect();
     };
   }, []);
 
@@ -127,14 +145,14 @@ export default function Hero() {
 
       {/* Floating icons */}
       {icons.map((item, i) => (
-        <FloatingIcon 
-          key={i} 
-          Icon={item.icon} 
+        <FloatingIcon
+          key={i}
+          Icon={item.icon}
           color={item.color}
           style={{
             top: `${10 + Math.random() * 80}%`,
             left: `${5 + Math.random() * 90}%`,
-          }} 
+          }}
         />
       ))}
 
@@ -272,8 +290,13 @@ export default function Hero() {
                 >
                   {/* Placeholder avatar */}
                   <div className="flex flex-col items-center gap-4">
-                    <div className="w-32 h-32 rounded-full glass-card-blue flex items-center justify-center border-2 border-blue-400/30">
-                      <span className="font-heading text-5xl font-black gradient-text">VK</span>
+                    <div className="w-32 h-32 rounded-2xl overflow-hidden border-2 border-blue-400/30">
+                      <img 
+                        src="/da7cd350-9143-4408-8023-d6b7b90fa464.jpg" 
+                        alt="Vishnu Kumar Kesharwani" 
+                        className="w-full h-full object-cover"
+                        loading="eager"
+                      />
                     </div>
                     <div className="text-center">
                       <p className="font-accent font-semibold text-white/80 text-sm">B.Pharm</p>
