@@ -156,13 +156,17 @@ jobs:
       - seo-audit
       - lighthouse
       - health-check
+      - security-scan
     runs-on: ubuntu-latest
 
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Trigger Render Deploy
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - name: Deploy Frontend
+        run: curl -X POST ${{ secrets.RENDER_FRONTEND_HOOK }}
+
+      - name: Deploy Backend
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
 
 # =====================================================
 # AUTO DEPENDENCY UPDATE
