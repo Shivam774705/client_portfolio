@@ -6,7 +6,7 @@ A modern, highly optimized, and interactive professional portfolio website built
 
 ## ✨ Features
 - **Premium UI/UX**: Glassmorphism design, smooth scroll, and custom cursor.
-- **High Performance**: 100/100 Lighthouse scores in Accessibility, Best Practices, and SEO. Optimized with code-splitting, lazy loading, and `IntersectionObserver`.
+- **High Performance**: Good Lighthouse scores in Accessibility, Best Practices, and SEO. Optimized with code-splitting, lazy loading, and `IntersectionObserver`.
 - **Interactive Animations**: Powered by Framer Motion, featuring dynamic particle backgrounds and responsive timeline cards.
 - **Fully Functional Contact Form**: Backend powered by Node.js, Express, and Nodemailer (Gmail integration).
 - **Responsive Design**: Mobile-first architecture ensuring perfect layouts across all devices.
